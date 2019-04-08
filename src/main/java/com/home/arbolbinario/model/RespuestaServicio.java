@@ -6,9 +6,9 @@ package com.home.arbolbinario.model;
  */
 public class RespuestaServicio {
 
-	public int estado;
-	public String descripcion;
-	public Object informacion;
+	private int estado;
+	private String descripcion;
+	private Object informacion;
 
 	public RespuestaServicio() {
 		super();

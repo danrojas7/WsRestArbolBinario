@@ -45,7 +45,7 @@ public class NodoArbolBinarioServiceImpl implements NodoArbolBinarioService {
 		nodoRaiz = proxyCache.getNodoArbolBinario();
 		if (nodoRaiz == null) {
 			proxyCache.init();
-		} else if (nodoRaiz != null && nodoRaiz.getNumero() == null) {
+		} else if (nodoRaiz.getNumero() == null) {
 			nodoRaiz.setNumero(numeroNodo);
 		} else {
 			insertarNodoArbol(numeroNodo, nodoRaiz);
@@ -61,7 +61,7 @@ public class NodoArbolBinarioServiceImpl implements NodoArbolBinarioService {
 	 */
 	@Override
 	public void insertarNodoArbol(Long numeroNodo, Nodo nodoArbol) {
-		if (nodoArbol.getNumero() == numeroNodo) {
+		if (nodoArbol.getNumero().equals(numeroNodo)) {
 			throw new IllegalArgumentException(
 					String.format("El número %s ya había sido ingresado en el árbol binario", numeroNodo));
 		} else {
@@ -133,7 +133,7 @@ public class NodoArbolBinarioServiceImpl implements NodoArbolBinarioService {
 			busquedaArbolBinario(lstAncestrosNodo2, nodoRaiz, numNodo2);
 		}
 		for (Long p : lstAncestrosNodo1) {
-			nodoAncestroComun = lstAncestrosNodo2.stream().filter(q -> p == q).findFirst().orElse(null);
+			nodoAncestroComun = lstAncestrosNodo2.stream().filter(q -> p.equals(q)).findFirst().orElse(null);
 			if (nodoAncestroComun != null) {
 				break;
 			}
