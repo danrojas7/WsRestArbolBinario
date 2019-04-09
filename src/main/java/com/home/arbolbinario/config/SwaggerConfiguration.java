@@ -14,6 +14,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
+ * Clase de configuración de la librería Swagger para realizar documentación y
+ * pruebas del microservicio
+ * 
  * @author Daniel Alejandro Rojas
  *
  */

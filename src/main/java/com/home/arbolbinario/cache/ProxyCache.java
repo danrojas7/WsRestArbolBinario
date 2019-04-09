@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 import com.home.arbolbinario.model.Nodo;
 
 /**
+ * Clase fachada para la administración de la caché del árbol binario
+ * 
  * @author Daniel Alejandro Rojas
  *
  */
@@ -13,12 +15,14 @@ import com.home.arbolbinario.model.Nodo;
 public class ProxyCache {
 
 	/**
-	 * 
+	 * Clase componente administradora de la caché del árbol binario
 	 */
 	@Autowired
 	private GestionCache gestionCache;
 
 	/**
+	 * Método que obtiene de la caché el nodo raíz del árbol binario almacenado
+	 * 
 	 * @return
 	 */
 	public Nodo getNodoArbolBinario() {
@@ -26,7 +30,8 @@ public class ProxyCache {
 	}
 
 	/**
-	 * 
+	 * Método init de la clase controladora de la caché, en la que se instancia un
+	 * nuevo nodo raíz a la espera de almacenar más elementos en el árbol binario
 	 */
 	public void init() {
 		gestionCache.init();

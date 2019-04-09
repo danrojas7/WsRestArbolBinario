@@ -1,6 +1,9 @@
 package com.home.arbolbinario.model;
 
 /**
+ * Clase Nodo del árbol binario, que va a soportar la estructura de datos del
+ * árbol binario
+ * 
  * @author Daniel Alejandro Rojas
  *
  */

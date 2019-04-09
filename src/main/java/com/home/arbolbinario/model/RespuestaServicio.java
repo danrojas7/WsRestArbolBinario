@@ -1,6 +1,8 @@
 package com.home.arbolbinario.model;
 
 /**
+ * Clase de respuesta estándar del microservicio Rest
+ * 
  * @author Daniel Alejandro Rojas
  *
  */

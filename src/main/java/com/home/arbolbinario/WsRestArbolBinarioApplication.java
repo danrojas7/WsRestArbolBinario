@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 /**
+ * Clase principal de inicialización del microservicio en SpringBoot
+ * 
  * @author Daniel Alejandro Rojas
  *
  */
@@ -13,6 +15,8 @@ import org.springframework.cache.annotation.EnableCaching;
 public class WsRestArbolBinarioApplication {
 
 	/**
+	 * Método main que es el punto de entrada del microservicio en SpringBoot
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {

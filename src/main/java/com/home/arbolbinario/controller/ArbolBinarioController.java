@@ -15,6 +15,9 @@ import com.home.arbolbinario.model.RespuestaServicio;
 import com.home.arbolbinario.service.impl.NodoArbolBinarioServiceImpl;
 
 /**
+ * Clase controller del microservicio, en la que se definen los métodos del Api
+ * Rest que se van a consumir
+ * 
  * @author Daniel Alejandro Rojas
  *
  */
@@ -23,14 +26,19 @@ import com.home.arbolbinario.service.impl.NodoArbolBinarioServiceImpl;
 public class ArbolBinarioController {
 
 	/**
-	 * 
+	 * Clase service con la lógica de manipulación del árbol binario
 	 */
 	@Autowired
 	private NodoArbolBinarioServiceImpl nodoArbolBinService;
 
 	/**
-	 * @param numeroNodo
-	 * @return
+	 * Método que realiza la inserción un número, en un nodo determinado dentro del
+	 * árbol binario
+	 * 
+	 * @param numeroNodo Número del nodo a insertar dentro del nodo del árbol
+	 *                   binario
+	 * @return Mensaje de respuesta informando de la inserción correcta o no, junto
+	 *         con el recorrido del árbol en inorden
 	 */
 	@GetMapping("/insertarNodoArbol{numeroNodo}")
 	public ResponseEntity<RespuestaServicio> insertarNodoArbolBinario(@PathVariable("numeroNodo") Long numeroNodo) {
@@ -57,9 +65,13 @@ public class ArbolBinarioController {
 	}
 
 	/**
-	 * @param numeroNodo1
-	 * @param numeroNodo2
-	 * @return
+	 * Método que retorna el nodo ancestro en común entre dos nodos, los números
+	 * proporcionados deben de haberse insertado anteriormente dentro del árbol
+	 * binario
+	 * 
+	 * @param numNodo1 Número de nodo 1 al cual se va a hallar el ancestro en común
+	 * @param numNodo2 Número de nodo 2 al cual se va a hallar el ancestro en común
+	 * @return Número del nodo que corresponde al ancestro en común
 	 */
 	@GetMapping("/obtenerAncestroComun/{numeroNodo1}/{numeroNodo2}")
 	public ResponseEntity<RespuestaServicio> obtenerAncestroComun(@PathVariable("numeroNodo1") Long numeroNodo1,
@@ -84,7 +96,13 @@ public class ArbolBinarioController {
 	}
 
 	/**
-	 * @return
+	 * Método que realiza el reinicio de la caché de SpringBoot, en la cual se
+	 * encuentra almacenada la estructura del árbol binario (se almacena el nodo
+	 * raíz)
+	 * 
+	 * @return Objeto instancia de la clase de respuesta predefinida del servicio,
+	 *         en la que se informa si se borró el árbol binario almacenado en la
+	 *         caché
 	 */
 	@GetMapping("/reiniciarArbolBinario")
 	public ResponseEntity<RespuestaServicio> reiniciarArbolBinario() {

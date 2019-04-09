@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import com.home.arbolbinario.model.Nodo;
 
 /**
+ * Clase controladora de la caché de SpringBoot, en la que se almacena la
+ * estructura de datos del árbol binario que se está insertando
+ * 
  * @author Daniel Alejandro Rojas
  *
  */
@@ -19,18 +22,22 @@ import com.home.arbolbinario.model.Nodo;
 public class GestionCache {
 
 	/**
-	 * 
+	 * Clase controladora de la caché
 	 */
 	@Autowired
 	private CacheManager cacheManager;
 
 	/**
-	 * 
+	 * Nodo raíz del árbol binario, en la cual viene soportada la estructura de
+	 * datos del árbol binario que se está almacenando
 	 */
 	private Nodo nodoArbolBinario;
 
 	/**
-	 * @return
+	 * Método que retorna de la caché del árbol binario, el nodo raíz en donde viene
+	 * soportada la estructura de datos
+	 * 
+	 * @return Nodo raíz del árbol binario
 	 */
 	@Cacheable("nodoArbolBinario")
 	public Nodo getNodoArbolBinario() {
@@ -38,7 +45,7 @@ public class GestionCache {
 	}
 
 	/**
-	 * 
+	 * Método que borra de la caché, el nodo raízo del árbol binario
 	 */
 	@CacheEvict(value = "nodo", allEntries = true)
 	private void clearNodoArbolBinarioCache() {
@@ -49,7 +56,7 @@ public class GestionCache {
 	}
 
 	/**
-	 * 
+	 * Método que inicializa el nodo raíz del árbol binario
 	 */
 	@EventListener(ApplicationReadyEvent.class)
 	public void init() {

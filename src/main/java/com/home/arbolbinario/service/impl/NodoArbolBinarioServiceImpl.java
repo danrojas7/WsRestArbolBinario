@@ -11,6 +11,9 @@ import com.home.arbolbinario.model.Nodo;
 import com.home.arbolbinario.service.NodoArbolBinarioService;
 
 /**
+ * Clase service que estructura la lógica de inserción y de búsqueda del árbol
+ * binario
+ * 
  * @author Daniel Alejandro Rojas
  *
  */
@@ -18,7 +21,9 @@ import com.home.arbolbinario.service.NodoArbolBinarioService;
 public class NodoArbolBinarioServiceImpl implements NodoArbolBinarioService {
 
 	/**
-	 * 
+	 * Clase componente que es la fachada para la manipulación de la caché
+	 * SpringBoot del proyecto, en la que se almacena la estructura de datos del
+	 * árbol binario (se almacena el nodo raíz)
 	 */
 	@Autowired
 	private ProxyCache proxyCache;
@@ -99,8 +104,12 @@ public class NodoArbolBinarioServiceImpl implements NodoArbolBinarioService {
 	}
 
 	/**
-	 * @param lstNodos
-	 * @param nodo
+	 * Método que realiza la inserción en una lista numérica en inorden por
+	 * referencia, del árbol binario
+	 * 
+	 * @param lstNodos Lista de nodos a insertar
+	 * @param nodo     Nodo que está recorriendo el método en el que se ejecuta por
+	 *                 recursión
 	 */
 	private void arbolInorden(List<Long> lstNodos, Nodo nodo) {
 		if (nodo != null) {
@@ -142,12 +151,19 @@ public class NodoArbolBinarioServiceImpl implements NodoArbolBinarioService {
 	}
 
 	/**
-	 * @param lstNodos
-	 * @param nodo
+	 * Método que guarda en una lista numérica por referencia, desde el nodo dado,
+	 * hasta la raíz con recorrido por recursión
+	 * 
+	 * @param lstNodos Lista con el camino de los nodos desde el nodo proporcionado
+	 *                 hasta el nodo raíz, que se actualiza por referencia
+	 * @param nodo     Nodo actual en el cual se está realizando el recorrido del
+	 *                 árbol binario por recursión
 	 */
 	private void busquedaArbolBinario(List<Long> lstNodos, Nodo nodo, Long numeroNodo) {
 		if (nodo != null) {
-			lstNodos.add(0, nodo.getNumero());
+			if (!numeroNodo.equals(nodo.getNumero())) {
+				lstNodos.add(0, nodo.getNumero());
+			}
 			if (nodo.getNumero() > numeroNodo) {
 				if (nodo.getNodoDerecho() != null) {
 					busquedaArbolBinario(lstNodos, nodo.getNodoDerecho(), numeroNodo);
