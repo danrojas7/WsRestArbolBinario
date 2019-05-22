@@ -40,7 +40,7 @@ public class ArbolBinarioController {
 	 * @return Mensaje de respuesta informando de la inserción correcta o no, junto
 	 *         con el recorrido del árbol en inorden
 	 */
-	@GetMapping("/insertarNodoArbol{numeroNodo}")
+	@GetMapping("/insertarNodoArbol/{numeroNodo}")
 	public ResponseEntity<RespuestaServicio> insertarNodoArbolBinario(@PathVariable("numeroNodo") Long numeroNodo) {
 		RespuestaServicio respuesta = null;
 

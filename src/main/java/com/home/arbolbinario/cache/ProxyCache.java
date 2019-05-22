@@ -25,7 +25,7 @@ public class ProxyCache {
 	 * 
 	 * @return
 	 */
-	public Nodo getNodoArbolBinario() {
+	public synchronized Nodo getNodoArbolBinario() {
 		return gestionCache.getNodoArbolBinario();
 	}
 
@@ -33,7 +33,7 @@ public class ProxyCache {
 	 * Método init de la clase controladora de la caché, en la que se instancia un
 	 * nuevo nodo raíz a la espera de almacenar más elementos en el árbol binario
 	 */
-	public void init() {
+	public synchronized void init() {
 		gestionCache.init();
 	}
 
